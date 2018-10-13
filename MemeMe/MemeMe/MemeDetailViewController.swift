@@ -10,7 +10,7 @@ import UIKit
 
 class MemeDetailViewController: UIViewController {
     var meme: Meme!
-
+    var memeArrayLocation: Int = 0
 
     @IBOutlet weak var memeImageView: UIImageView!
     
@@ -19,18 +19,21 @@ class MemeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        memeImageView.image = meme.memedImage
-        
         //not sure if this is to spec but it makes the nav seem more "correct"
         tabBarController?.tabBar.isHidden = true
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editMeme))
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        memeImageView.image = meme.memedImage
+    }
     
     @objc func editMeme() {
         let gmvc = self.storyboard?.instantiateViewController(withIdentifier: "GenerateMemeViewController") as! GenerateMemeViewController
         gmvc.meme = self.meme
-//                        navigationController?.pushViewController(gmvc, animated: true)
+        gmvc.memeArrayLocation = self.memeArrayLocation
         self.present(gmvc, animated: true, completion: nil)
   }
 

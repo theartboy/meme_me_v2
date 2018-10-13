@@ -14,7 +14,9 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
-    
+ 
+    var memeArrayLocation: Int = 0
+
     @IBOutlet weak var memeCollection: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -39,7 +41,6 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
 
     @objc func newMeme(){
         let gmvc = self.storyboard?.instantiateViewController(withIdentifier: "GenerateMemeViewController") as! GenerateMemeViewController
-//                navigationController?.pushViewController(gmvc, animated: true)
         self.present(gmvc, animated: true, completion: nil)
     }
     
@@ -54,8 +55,6 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     
     //MARK: Collection methods
    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //
-//        print("collection meme count: \(memes.count)")
         return memes.count
     }
     
@@ -67,16 +66,14 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         // Set the name and image
         cell.memeImageView?.image = meme.memedImage
         cell.memeImageView?.contentMode = .scaleAspectFill
-//        cell.backgroundColor = UIColor.green
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let meme = self.memes[(indexPath as NSIndexPath).row]
         let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         memeDetailController.meme = self.memes[(indexPath as NSIndexPath).row]
-        print("frame width: \(view.frame.size.width)")
-        self.navigationController!.pushViewController(memeDetailController, animated: true)
+        memeDetailController.memeArrayLocation = (indexPath as NSIndexPath).row
+       self.navigationController!.pushViewController(memeDetailController, animated: true)
     }
  
     override func didReceiveMemoryWarning() {

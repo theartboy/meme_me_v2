@@ -14,6 +14,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    var memeArrayLocation: Int = 0
+    
     @IBOutlet weak var memeTable: UITableView!
     
     
@@ -54,6 +57,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         memeDetailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        memeDetailController.memeArrayLocation = (indexPath as NSIndexPath).row
         self.navigationController!.pushViewController(memeDetailController, animated: true)
     }
     

@@ -29,7 +29,9 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     let memeTextDelegate = MemeTextFieldDelegate()
     
     var meme: Meme!
-    
+    var memeArrayLocation: Int = 0
+    var memeEdit: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
         setupTextField(tf: bottomTextfield, text: "BOTTOM")
         
         if meme != nil {
+            memeEdit = true
             imagePickerView.image = meme.originalImage
             topTextfield.text = meme.topText
             bottomTextfield.text = meme.bottomText
@@ -162,9 +165,29 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     //MARK: Actions
     func save(newMeme: UIImage) {
         // Create the meme
-        meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, originalImage: imagePickerView.image!, memedImage: newMeme, finishedScale: finishedScale, centerLocation: newLocation)
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+        //
+        if memeEdit {
+            
+            meme.topText = topTextfield.text!
+            meme.bottomText = bottomTextfield.text!
+            meme.originalImage = imagePickerView.image!
+            meme.memedImage = newMeme
+            meme.finishedScale = finishedScale
+            meme.centerLocation = newLocation
+        
+            appDelegate.memes[memeArrayLocation] = meme
+            
+        } else {
+            meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, originalImage: imagePickerView.image!, memedImage: newMeme, finishedScale: finishedScale, centerLocation: newLocation)
+            
+            appDelegate.memes.append(meme)
+            
+        }
+//        meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, originalImage: imagePickerView.image!, memedImage: newMeme, finishedScale: finishedScale, centerLocation: newLocation)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.memes.append(meme)
     }
     
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
@@ -183,8 +206,17 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
             if success && error == nil {
 //                print("completed \(activity as Any) \(success) \(items as Any) \(error as Any)")
                 self.save(newMeme: image)
+                
                 self.dismiss(animated: true, completion: nil);
                 //TODO: try to get back to table/collection view instead of detail after an edit share/save
+//                let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+//                if self.memeEdit {
+//                    print("edit exit")
+//                    memeDetailController.presentingViewController?.dismiss(animated: true, completion: nil)
+//                } else {
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+
 //                    self.dismiss(animated: true, completion: {
 //                    self.navigationController?.popToRootViewController(animated: true)//.popToRootViewController(animated: true)
 //                })
