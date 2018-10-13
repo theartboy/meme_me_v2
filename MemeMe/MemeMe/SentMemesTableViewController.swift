@@ -16,37 +16,26 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     @IBOutlet weak var memeTable: UITableView!
     
-    ////    Alternately, a computed property can achieve the same result.
-    //    var memes: [Meme]! {
-    //        let object = UIApplication.shared.delegate
-    //        let appDelegate = object as! AppDelegate
-    //        return appDelegate.memes
-    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        memes = appDelegate.memes
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(newMeme))
     }
     override func viewDidAppear(_ animated: Bool) {
         memeTable.reloadData()
         
-        //eliminate this if tabBar must always be visible
+        //NOTE: eliminate this if tabBar must always be visible
         tabBarController?.tabBar.isHidden = false
         memeTable.rowHeight = 100
     }
  
     @objc func newMeme(){
         let gmvc = self.storyboard?.instantiateViewController(withIdentifier: "GenerateMemeViewController") as! GenerateMemeViewController
-//        navigationController?.pushViewController(gmvc, animated: true)
         self.present(gmvc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("table meme count: \(memes.count)")
         return memes.count
     }
     
@@ -59,13 +48,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         cell.imageView?.image = meme.memedImage
         cell.imageView?.contentMode = .scaleAspectFill
 
-        //        cell.backgroundColor = UIColor.green
-        cell.imageView?.backgroundColor = UIColor.green
-//        // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = "Scheme: \(villain.evilScheme)"
-//        }
-//        let cell = UITableViewCell()
         return cell
     }
     

@@ -9,14 +9,12 @@
 import UIKit
 
 class SentMemesCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-//    var memes:[Meme]!
+    var memes: [Meme]! {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memes
+    }
     
-    ////    Alternately, a computed property can achieve the same result.
-        var memes: [Meme]! {
-            let object = UIApplication.shared.delegate
-            let appDelegate = object as! AppDelegate
-            return appDelegate.memes
-        }
     @IBOutlet weak var memeCollection: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -24,9 +22,9 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         super.viewDidLoad()
         
         let space:CGFloat = 3.0
-//        let rowItems:CGFloat = 3.0
         var dimension: CGFloat = 0.0
-        if view.frame.size.width < view.frame.size.height {
+        
+        if UIDevice.current.orientation.isPortrait {
             dimension = (view.frame.size.width - (2 * space)) / 3.0
         } else {
             dimension = (view.frame.size.height - (2 * space)) / 5.0
