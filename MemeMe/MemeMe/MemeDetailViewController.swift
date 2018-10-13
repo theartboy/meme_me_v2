@@ -24,6 +24,7 @@ class MemeDetailViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editMeme))
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 

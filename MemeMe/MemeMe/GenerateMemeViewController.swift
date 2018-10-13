@@ -32,6 +32,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     var memeArrayLocation: Int = 0
     var memeEdit: Bool = false
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,8 +50,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
 
             imagePickerView.transform = imagePickerView.transform.translatedBy(x: newLocation.x, y: newLocation.y)
             imagePickerView.transform = imagePickerView.transform.scaledBy(x: finishedScale, y: finishedScale)
-        } else {
-            resetNavElements(buttonsEnabled: false)
+            
         }
     }
     
@@ -176,18 +176,14 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
             meme.memedImage = newMeme
             meme.finishedScale = finishedScale
             meme.centerLocation = newLocation
-        
+            
             appDelegate.memes[memeArrayLocation] = meme
             
         } else {
             meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, originalImage: imagePickerView.image!, memedImage: newMeme, finishedScale: finishedScale, centerLocation: newLocation)
             
             appDelegate.memes.append(meme)
-            
         }
-//        meme = Meme(topText: topTextfield.text!, bottomText: bottomTextfield.text!, originalImage: imagePickerView.image!, memedImage: newMeme, finishedScale: finishedScale, centerLocation: newLocation)
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        appDelegate.memes.append(meme)
     }
     
     @IBAction func shareMeme(_ sender: UIBarButtonItem) {
@@ -208,14 +204,16 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
                 self.save(newMeme: image)
                 
                 self.dismiss(animated: true, completion: nil);
-                //TODO: try to get back to table/collection view instead of detail after an edit share/save
+                //TODO: need to get meme detail view to update to new image if it was an edit instead of new meme
+                
 //                let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
 //                if self.memeEdit {
 //                    print("edit exit")
-//                    memeDetailController.presentingViewController?.dismiss(animated: true, completion: nil)
-//                } else {
-//                    self.dismiss(animated: true, completion: nil)
+//                    memeDetailController.memeImageView.image = self.memedImageSaved
+////                    memeDetailController.presentingViewController?.dismiss(animated: true, completion: nil)
 //                }
+//                self.dismiss(animated: true, completion: nil)
+                
 
 //                    self.dismiss(animated: true, completion: {
 //                    self.navigationController?.popToRootViewController(animated: true)//.popToRootViewController(animated: true)
