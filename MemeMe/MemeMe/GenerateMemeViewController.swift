@@ -202,22 +202,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
             if success && error == nil {
 //                print("completed \(activity as Any) \(success) \(items as Any) \(error as Any)")
                 self.save(newMeme: image)
-                
-                self.dismiss(animated: true, completion: nil);
-                //TODO: need to get meme detail view to update to new image if it was an edit instead of new meme
-                
-//                let memeDetailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-//                if self.memeEdit {
-//                    print("edit exit")
-//                    memeDetailController.memeImageView.image = self.memedImageSaved
-////                    memeDetailController.presentingViewController?.dismiss(animated: true, completion: nil)
-//                }
-//                self.dismiss(animated: true, completion: nil)
-                
-
-//                    self.dismiss(animated: true, completion: {
-//                    self.navigationController?.popToRootViewController(animated: true)//.popToRootViewController(animated: true)
-//                })
+                self.dismiss(animated: true, completion: nil)
             }
             else if error != nil{
                 //log the error

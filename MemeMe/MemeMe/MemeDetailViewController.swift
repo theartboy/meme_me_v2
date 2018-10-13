@@ -27,8 +27,10 @@ class MemeDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
-        memeImageView.image = meme.memedImage
+        
+        //force the image to reload so that the image will update after editing the meme
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memeImageView.image = appDelegate.memes[memeArrayLocation].memedImage
     }
     
     @objc func editMeme() {

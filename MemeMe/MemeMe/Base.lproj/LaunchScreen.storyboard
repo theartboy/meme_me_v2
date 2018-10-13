@@ -23,7 +23,7 @@
                                 <items/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hih-S8-3hm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9Vb-sg-9Gv"/>
                             <constraint firstAttribute="trailing" secondItem="hih-S8-3hm" secondAttribute="trailing" id="Tc6-op-rym"/>
