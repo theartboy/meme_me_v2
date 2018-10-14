@@ -145,7 +145,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     func generateMemedImage() -> UIImage {
         //Hide toolbar and navbar
         showHideToolbars(isHidden: true)

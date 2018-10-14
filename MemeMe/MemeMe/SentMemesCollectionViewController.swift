@@ -63,9 +63,10 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemeCell", for: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
+        cell.populateCell(meme: meme)
         // Set the name and image
-        cell.memeImageView?.image = meme.memedImage
-        cell.memeImageView?.contentMode = .scaleAspectFill
+//        cell.memeImageView?.image = meme.memedImage
+//        cell.memeImageView?.contentMode = .scaleAspectFill
         return cell
     }
     

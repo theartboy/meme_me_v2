@@ -14,7 +14,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
-    
+        
     var memeArrayLocation: Int = 0
     
     @IBOutlet weak var memeTable: UITableView!
@@ -43,13 +43,16 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMemeCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SentMemeCell", for: indexPath) as! MemeTableViewCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemeCell", for: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
 //        // Set the name and image
-        cell.textLabel?.text = meme.topText
-        cell.imageView?.image = meme.memedImage
-        cell.imageView?.contentMode = .scaleAspectFill
+//        cell.textLabel?.text = meme.topText
+//        cell.imageView?.image = meme.memedImage
+//        cell.imageView?.contentMode = .scaleAspectFill
+        
+        cell.populateCell(meme: meme)
 
         return cell
     }

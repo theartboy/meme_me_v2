@@ -21,4 +21,11 @@ class MemeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func populateCell(meme: Meme) {
+        self.textLabel?.text = meme.topText
+        self.imageView?.image = meme.memedImage
+        self.imageView?.contentMode = .scaleAspectFill
+    }
+    
+
 }

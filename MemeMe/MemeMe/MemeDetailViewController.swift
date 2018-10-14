@@ -25,10 +25,8 @@ class MemeDetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editMeme))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        //force the image to reload so that the image will update after editing the meme
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memeImageView.image = appDelegate.memes[memeArrayLocation].memedImage
     }

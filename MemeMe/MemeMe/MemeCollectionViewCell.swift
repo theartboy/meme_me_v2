@@ -12,5 +12,9 @@ class MemeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memeImageView: UIImageView!
     
-    
+    func populateCell(meme: Meme) {
+        memeImageView.image = meme.memedImage
+        memeImageView.contentMode = .scaleAspectFill
+    }
+
 }
