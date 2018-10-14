@@ -36,8 +36,8 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTextField(tf: topTextfield, text: "TOP")
-        setupTextField(tf: bottomTextfield, text: "BOTTOM")
+        setupTextField(tf: topTextfield)
+        setupTextField(tf: bottomTextfield)
         
         if meme != nil {
             memeEdit = true
@@ -50,7 +50,6 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
 
             imagePickerView.transform = imagePickerView.transform.translatedBy(x: newLocation.x, y: newLocation.y)
             imagePickerView.transform = imagePickerView.transform.scaledBy(x: finishedScale, y: finishedScale)
-            
         }
     }
     
@@ -78,7 +77,7 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     //MARK: helper functions
-    func setupTextField(tf: UITextField, text: String) {
+    func setupTextField(tf: UITextField) {
         tf.defaultTextAttributes = [
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "Impact", size: 40)!,
@@ -89,7 +88,6 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
         tf.textColor = UIColor.white
         tf.tintColor = UIColor.white
         tf.textAlignment = .center
-        tf.text = text
     }
     
     func resetNavElements(buttonsEnabled: Bool){
@@ -100,8 +98,6 @@ class GenerateMemeViewController: UIViewController, UIImagePickerControllerDeleg
         movementAllowed = buttonsEnabled
         
         if !buttonsEnabled {
-            topTextfield.text = "TOP"
-            bottomTextfield.text = "BOTTOM"
             imagePickerView.image = nil
             imagePickerView.backgroundColor = UIColor.darkGray
         } else {
