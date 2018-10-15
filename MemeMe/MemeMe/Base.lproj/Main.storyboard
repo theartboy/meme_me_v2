@@ -91,12 +91,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yLE-PB-4NU" secondAttribute="trailing" constant="16" id="0VU-sP-pHB"/>
                             <constraint firstItem="yLE-PB-4NU" firstAttribute="leading" secondItem="JqL-VP-TdE" secondAttribute="leading" id="1jg-Hm-Em8"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="trailing" secondItem="tyS-JL-w1e" secondAttribute="trailing" id="B4m-JD-s13"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="bottom" secondItem="g2b-qH-Ybc" secondAttribute="top" id="Jg0-jt-bYK"/>
                             <constraint firstAttribute="trailing" secondItem="tNu-OE-C6E" secondAttribute="trailing" id="Twc-S7-Bpo"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="leading" secondItem="g2b-qH-Ybc" secondAttribute="leading" id="Tzm-3m-0d8"/>
                             <constraint firstItem="yLE-PB-4NU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="97" id="UVl-B7-NQ1"/>
+                            <constraint firstItem="yLE-PB-4NU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VSm-dW-C3n"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="trailing" secondItem="g2b-qH-Ybc" secondAttribute="trailing" id="Wes-p2-kTN"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="leading" secondItem="tyS-JL-w1e" secondAttribute="leading" id="ZSc-Lq-Ofg"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="top" secondItem="tyS-JL-w1e" secondAttribute="bottom" id="bJ1-ug-mn4"/>
@@ -105,7 +107,6 @@
                             <constraint firstItem="g2b-qH-Ybc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="grD-kE-NVh"/>
                             <constraint firstItem="yLE-PB-4NU" firstAttribute="trailing" secondItem="JqL-VP-TdE" secondAttribute="trailing" id="rJW-Lz-uza"/>
                             <constraint firstItem="yLE-PB-4NU" firstAttribute="top" secondItem="tyS-JL-w1e" secondAttribute="bottom" constant="16" id="v6O-Y1-lry"/>
-                            <constraint firstItem="JqL-VP-TdE" firstAttribute="centerX" secondItem="g2b-qH-Ybc" secondAttribute="centerX" id="wvZ-9f-eyk"/>
                             <constraint firstItem="tNu-OE-C6E" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wyb-Pn-l6h"/>
                             <constraint firstItem="g2b-qH-Ybc" firstAttribute="top" secondItem="JqL-VP-TdE" secondAttribute="bottom" constant="16" id="x6T-eK-L6p"/>
                         </constraints>
@@ -144,7 +145,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="770" y="-677"/>
+            <point key="canvasLocation" x="721" y="-625"/>
         </scene>
         <!--Meme Detail-->
         <scene sceneID="O34-v2-V9c">
